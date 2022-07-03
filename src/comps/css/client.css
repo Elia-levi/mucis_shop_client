@@ -1,0 +1,54 @@
+.product-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.product-item .product-img {
+  min-height: 350px;
+  background: silver;
+  background-size: cover;
+  background-position: center center;
+  /* part of children element that out of the border of parent element will hide */
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  transition: 400ms;
+}
+
+.product-item .product-img:hover {
+  box-sizing: border-box;
+  transform: scale(1.02, 1.02);
+  transition: 400ms;
+}
+
+.product-item .product-img .sold-out {
+  position: absolute;
+  top: 15px;
+  left: -90px;
+  background: red;
+  padding: 8px 100px;
+  transform: rotate(-45deg);
+}
+
+.product-item-in {
+  min-height: 90px;
+  overflow: hidden;
+}
+
+.h2-info{
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 1.7em;
+  letter-spacing: 1;
+  word-spacing: -1.2px;
+  color: black;
+  font-weight: 500;
+  text-decoration: underline solid  #FFFFFF;
+  font-style: italic;
+}
+
+
+@media (max-width:991px) {
+  .product-item .product-img {
+    min-height: 200px;
+  }
+}

@@ -1,0 +1,39 @@
+.imges_see{
+border: none; 
+background: none;
+color: #0d6efd;
+}
+
+.imges_see:hover{
+    color: purple;
+    border-bottom: purple 1px solid;
+
+}
+
+.btnDell{
+    border-radius:20%;
+    color: black;
+}
+
+@media (max-width:991px){
+    .res_teb{
+        font-size: 0.5rem;
+        
+    }
+
+    .res_teb button{
+        font-size: 0.4rem;
+    }
+
+    .res_teb_edit{
+        margin-bottom: 4px;
+    }
+    .total_price{
+        font-size: 1rem;
+
+    }
+
+    
+}
+    
+

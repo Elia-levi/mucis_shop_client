@@ -1,0 +1,88 @@
+.strip_home {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+.strip_home h2,
+.strip_home h4 {
+  color: whitesmoke;
+  letter-spacing: .1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+.categories_list a,
+.subcategories_list a {
+  text-decoration: none;
+}
+
+.categories_list a>div,
+.subcategories_list a>div {
+  transition: 400ms;
+}
+
+.categories_list a:hover>div,
+.subcategories_list a:hover>div {
+  box-sizing: border-box;
+  transform: scale(1.04, 1.04);
+}
+
+
+.categories_list .myCard .img_card,
+.subcategories_list .myCard .img_card {
+  min-height: 200px;
+  background: silver;
+  background-size: cover;
+  background-position: center center;
+}
+
+.img_card_in {
+  color: white;
+  background: rgba(0, 0, 0, 0.427);
+  width: 100%;
+  text-align: center;
+}
+
+
+.about-home {
+  min-height: 300px;
+  background-color: #95c2de;
+  border-radius: 25px;
+  box-shadow: -12px -8px 20px 10px rgb(35, 35, 35);
+  border-bottom: 4px white solid;
+  border-left: 6px white solid;
+}
+
+.leaflet-container {
+  width: 98%;
+  height: 300px;
+  border: white 2px solid;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.pop_up_map {
+  border: none;
+  background: none;
+  color: #0d6efd;
+}
+
+.pop_up_map:hover {
+  color: purple;
+  border-bottom: purple 1px solid;
+}
+
+@media (max-width:991px) {
+
+  .about-home p {
+    font-size: 0.9em;
+  }
+
+  .strip_home h2 {
+    font-size: 1.5em;
+  }
+
+  .strip_home h4 {
+    font-size: 1em;
+  }
+}

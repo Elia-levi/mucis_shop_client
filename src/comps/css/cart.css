@@ -1,0 +1,28 @@
+.cart{
+  position: absolute;
+  width:100%;
+  width: 320px;
+  height: 60vh;
+  background: rgb(255, 251, 251);
+  border:1px solid black;
+  border-top: 1px white solid;
+  border-bottom-left-radius: 15px;
+  right:0px;
+  top:-100%;
+  transition: 850ms;
+  overflow-y: scroll;
+  z-index: 99;
+}
+
+.cart.active{
+  top: 60px;
+  transition: 350ms;
+  z-index: 99;
+}
+
+
+@media (max-width:991px) {
+  .cart{
+    width: 250px;
+  }
+}

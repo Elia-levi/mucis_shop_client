@@ -1,0 +1,119 @@
+.header_admin{
+background-color: black;
+}
+
+.header_admin  a{
+  text-decoration: none;
+}
+
+
+
+.header_admin .nav-admin a{
+  color:white;
+  text-decoration: none;
+  padding: 0px 4px;
+  border-right: rgb(202, 25, 25) 2px solid;
+  margin-right: 8px ;
+}
+
+.header_admin .nav-admin a:hover{
+  color:rgb(202, 25, 25);
+
+}
+
+.header_admin .nav-admin a:active{
+  color:red;
+
+}
+
+.logo img{
+  width: 120px;
+}
+
+.footer-admin{
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+/* ----------------------------------------------- nav*/
+
+.navbar {
+  background-color: black;
+  height: 80px;
+  justify-content: start;
+  align-items: center;
+}
+
+.menu-bars {
+  font-size: 1.3rem;
+  background: none;
+}
+
+.nav-menu {
+  background-color: black;
+  width: 250px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 80px;
+  left: -100%;
+  transition: 850ms;
+  border: black 2px solid;
+  border-bottom-right-radius: 10px;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px ;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px  0px 0px 24px;
+  border-radius: 4px;
+}
+
+
+
+.nav-menu-items {
+  width: 100%;
+}
+
+
+
+span {
+  margin-left: 16px;
+}
+
+
+
+@media (max-width:991px){
+
+.nav-admin{
+  display: none;
+}
+
+.logo img{
+  width: 70px;
+  margin: 0px 0px 0px 4px;  
+  padding: 0px;
+}
+
+}
+

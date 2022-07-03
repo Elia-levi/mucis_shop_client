@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from 'react';
+
+import ProducItem from './productItem';
+
+import { API_URL, doApiGet } from '../services/apiService';
+import { checkVisitedLocal, VISITED_PRODUCT } from '../services/localService';
+
+
+function ProductsHome(props) {
+  let [ar, setAr] = useState([]);
+
+  useEffect(() => {
+    doApi();
+  }, [])
+
+  const doApi = async () => {
+    // check if there products saved in the local that user visited in
+    let vistedProds = checkVisitedLocal();
+    let url;
+    if (vistedProds) {
+      url = API_URL + "/products/visited?visited=" + vistedProds;
+    }
+    else {
+      url = API_URL + "/products?perPage=4";
+    }
+    let resp = await doApiGet(url);
+    setAr(resp.data);
+  }
+
+
+  return (
+    <div className="container-fluid py-4 shadow-lg">
+      <div className='container'>
+
+        {localStorage[VISITED_PRODUCT] ?
+          <h2 className='text-center display-6 fw-bold  fst-italic text-info'>Products you intersted in</h2> :
+          <h2 className='text-center display-6 fw-bold  fst-italic text-info'>
+            New products in our store
+          </h2>
+        }
+
+        <div className="row">
+          {ar.map(item => {
+            return (
+              <ProducItem key={item._id} item={item} />
+            )
+          })}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ProductsHome
