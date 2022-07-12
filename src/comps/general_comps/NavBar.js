@@ -76,7 +76,7 @@ function NavBar() {
                                     <Link to="/logout" className='btn-danger btn-sm btn text-white'>Log out</Link>
                                     :
                                     <React.Fragment>
-                                        <Link className='btn-info btn-sm text-whit btn-sm text-white me-2' to="/login">Log in </Link>
+                                        <Link className='btn-info btn-sm text-whit btn-sm text-white me-2' to="/login">Login </Link>
                                         <Link className='btn-success btn-sm text-whit btn-sm  text-white' to="/signup"> Sign up</Link>
                                     </React.Fragment>
                                 }

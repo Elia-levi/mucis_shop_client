@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -18,6 +18,8 @@ function CategoriesList(props) {
 
   let location = useLocation()
   let nav = useNavigate()
+  const sortRef = useRef("");
+  const checkboxRef = useRef(null);
 
   useEffect(() => {
     doApi()
@@ -30,14 +32,17 @@ function CategoriesList(props) {
       //?page collect query string
       let pageQuery = urlParams.get("page") || 1;
       setPageNum(pageQuery)
-      let url = API_URL + "/categories/?page=" + pageQuery;
+
+      let url;
+      (checkboxRef.current.checked) ? url = API_URL + "/categories/?page=" + pageQuery+"&sort="+sortRef.current.value+"&reverse=yes" : url = API_URL + "/categories/?page=" + pageQuery+"&sort="+sortRef.current.value
+
       let resp = await doApiGet(url);
       setAr(resp.data);
     }
     catch (err) {
-      alert("there problem come back later")
       if (err.response) {
         console.log(err.response.data)
+        alert("there problem come back later")
       }
     }
     setLoading(false)
@@ -63,6 +68,10 @@ function CategoriesList(props) {
     setLoading(false)
   }
 
+  const doFilter = async() => {
+    doApi();
+  };
+
   const openInNewTab = url => {
     // setting target to _blank with window.open
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -71,13 +80,35 @@ function CategoriesList(props) {
   return (
     <div className='container' style={{ minHeight: "83vh" }}>
       <AuthAdminComp />
-      <h1 className='text-center display-5 fw-bold my-3 fst-italic'>List of Categoires in system</h1>
-      <Link className='btn btn-success border border-dark mb-1' to="/admin/addcategory">Add new Category</Link>
+      <h1 className='text-center display-5 fw-bold my-4 fst-italic'>List of Categoires in system</h1>
+
+      <div className='row justify-content-between align-items-center'>
+        <div className='col-lg-3'>
+        <Link className='btn btn-success border border-dark mb-1' to="/admin/addcategory">Add new Category</Link>
+        </div>
+        <div className='col-lg-5 d-lg-flex col-md-4'>
+          <label className=' fw-bold mb-1 me-1'>filter:</label>
+          <select ref={sortRef} className='form-select form-select-sm mb-1 me-2'>
+            <option value="" >Choose filter</option>
+            <option value="name" >name</option>
+          </select>
+
+          <div className='col-lg-5 ms-3 d-md-flex'>
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" ref={checkboxRef} value=""/>
+              <label className="form-check-label" style={{fontSize:"0.7em" ,fontWeight:"bold"}}>
+              From the largest to the smallest
+              </label>
+              </div>
+          </div>
+          <button className='btn btn-primary btn-sm rounded-pill mb-1' onClick={doFilter}>search</button>
+        </div>
+      </div>
 
       <div className="table-responsive">
         <table className='table text-wrap table-striped table-bordered border border-2 border-dark res_teb'>
 
-          <thead>
+          <thead style={{zIndex:"9"}}>
             <tr className='table-warning text-center '>
               <th >#</th>
               <th>Name</th>

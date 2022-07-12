@@ -30,9 +30,12 @@ import ProductInfo from './comps/productInfo';
 import FavsProducts from './comps/users_comps/favsProducts';
 import SearchProducts from './comps/searchProducts';
 import Checkout from './comps/orders_comps/checkout';
+import EmailSent from './comps/users_comps/emailSent';
+import ForgottenPassword from './comps/users_comps/forgottenPassword';
 
 import Page404 from './comps/general_comps/page404';
 import 'react-toastify/dist/ReactToastify.css';
+import PasswordRest from './comps/users_comps/passwordRest';
 
 
 
@@ -72,11 +75,16 @@ function AppRoute(props){
           <Route path="/logout" element={<LogoutClient />}  />
           <Route path="/products_favs" element={<FavsProducts />}  />
           <Route path="/checkout" element={<Checkout />}  />
+          <Route path="/emailSent" element={<EmailSent />}  />
+          <Route path="/emailSent/:emailuser/" element={<EmailSent />}  />
+          <Route path="/emailSent/:emailuser/:reset" element={<EmailSent />}  />
+          <Route path="/forgottenPassword" element={<ForgottenPassword />}  />
+          <Route path="/passwordRest/:userId/:resetString" element={<PasswordRest />}  />
          {/* * - for any url that not in another route go to 404 */}
           <Route path="/*" element={<Page404 />} />
         </Route> 
       </Routes>
-      <ToastContainer position="top-right" theme='colored' />
+      <ToastContainer position="bottom-right" theme='colored'/>
     </Router> 
   )
 }

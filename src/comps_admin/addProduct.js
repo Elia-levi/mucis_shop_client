@@ -87,7 +87,7 @@ function AddProduct(props) {
         </div>
 
         <label className=' fw-bold mb-1'>SubCategory:</label>
-        <select {...cat_short_idRef} placeholder="SubCategory" className='form-control mb-2 ms-1' >
+        <select {...cat_short_idRef}   className='form-select mb-2 ms-1'>
           <option value="" >Choose SubCategory</option>
           {cat_ar.map(item => {
             return (

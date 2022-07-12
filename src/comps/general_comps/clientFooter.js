@@ -12,15 +12,15 @@ function ClientFooter(props) {
 
           <div className='col-md-4'>
             <h2 className='mt-4 pb-2'><img src={"/images/Background.png"} alt="logo" /></h2>
-            <p className='ms-2 fw-semibold mb-2'>owner:<span className='fw-light m-0' style={{ fontSize: "0.9em" }}> Noam Avenue.</span></p>
-            <p className='ms-2 fw-semibold mb-2'>Address:<span className='fw-light m-0' style={{ fontSize: "0.9em" }}> hatvor 16 TLV.</span></p>
-            <p className='ms-2 fw-semibold mb-2'>Country:<span className='fw-light m-0' style={{ fontSize: "0.9em" }}> Israel.</span></p>
+            <p className='ms-2 fw-semibold mb-2'>owner:<span className='fw-light ' style={{ fontSize: "0.9em" }}> Noam Avenue.</span></p>
+            <p className='ms-2 fw-semibold mb-2'>Address:<span className='fw-light ' style={{ fontSize: "0.9em" }}> hatvor 16 TLV.</span></p>
+            <p className='ms-2 fw-semibold mb-2'>Country:<span className='fw-light ' style={{ fontSize: "0.9em" }}> Israel.</span></p>
           </div>
 
           <div className='col-md-4'>
             <h3 className='mt-4 pb-2 fw-semibold'>CONTACT</h3>
-            <p className='ms-2 fw-semibold mb-2'>Email:<span className='fw-light m-0' style={{ fontSize: "0.9em" }}> NeedEnter@gmail.com.</span></p>
-            <p className='ms-2 fw-semibold mb-2'>Tel:<span className='fw-light m-0' style={{ fontSize: "0.9em" }}> 050-5123456.</span></p>
+            <p className='ms-2 fw-semibold mb-2'>Email:<span className='fw-light ' style={{ fontSize: "0.9em" }}> NeedEnter@gmail.com.</span></p>
+            <p className='ms-2 fw-semibold mb-2'>Tel:<span className='fw-light ' style={{ fontSize: "0.9em" }}> 050-5123456.</span></p>
           </div>
 
           <div className='col-md-4'>

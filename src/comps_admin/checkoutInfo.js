@@ -87,7 +87,7 @@ function CheckoutInfo(props) {
 
       <div className="table-responsive">
         <table className='table overflow-auto table-striped table-bordered border border-2 border-dark res_teb'>
-          <thead>
+          <thead style={{zIndex:"9"}}>
             <tr className='table-danger text-center '>
               <th>#</th>
               <th>Name</th>

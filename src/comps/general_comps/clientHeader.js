@@ -124,7 +124,7 @@ function ClientHeader(props) {
                     <Link to="/logout" className='text-danger'>Log out</Link>
                     :
                     <React.Fragment >
-                      <Link to="/login" >Log in </Link>/
+                      <Link to="/login" >Login </Link>/
                       <Link to="/signup" > Sign up</Link>
                     </React.Fragment>
                   }

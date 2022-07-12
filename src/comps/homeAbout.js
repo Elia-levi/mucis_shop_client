@@ -11,14 +11,14 @@ function HomeAbut(props) {
 
   return (
     <div className='container-fluid'>
-      <div className="container text-black my-5 about-home">
-        <h2 className='display-6 text-center pt-2 '>About</h2>
+      <div className="container text-black my-5 about-home ">
+        <h2 className='display-6 text-center pt-2 fw-bold fst-italic text-white'>About</h2>
         <div className='row  '>
 
           <div className='col-md-6'>
             <h3 className='text-center fw-light text-white'>About us</h3>
-            <h4 className='fs-5 text-center'>For us music is a way of life and not just a business</h4>
-            <p className='ms-1 lead'>Music shop, created out of love for music.<br /> For us music is a way of life and not just a business.<br /> And musicians are not just our customers.<br />
+            <h4 className='fs-5 '>For us music is a way of life and not just a business</h4>
+            <p className='ms-1 lead '>Music shop, created out of love for music.<br /> For us music is a way of life and not just a business.<br /> And musicians are not just our customers.<br />
               They are also our sales people.<br /> Each of the employees, from the chain's branches, the national service center and the management itself, has a deep and sincere love for music.<br />
               As musicians we are committed to bringing you the best products, while providing the best service and purchasing experience that will remain etched in your memory. </p>
           </div>

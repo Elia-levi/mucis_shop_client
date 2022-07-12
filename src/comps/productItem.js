@@ -10,7 +10,7 @@ function ProducItem(props) {
 
   let item = props.item;
   let short_name;
-  item.name.length > 52 ? short_name = item.name.slice(0, 48) + "..." : short_name = item.name;
+  item.name.length > 62 ? short_name = item.name.slice(0, 62) + "..." : short_name = item.name;
 
 
   return (
@@ -25,7 +25,7 @@ function ProducItem(props) {
         </Link>
 
         <div className='align-items-end product-item-in row px-2 mt-1'>
-          <h5 className='col-12'>{short_name}</h5>
+          <h6 className='col-12'>{short_name}</h6>
           <div className='col-8 mb-2'>Price: ${item.price}</div>
 
           <div className='text-end  col-4 mb-2 '>
