@@ -32,6 +32,7 @@ import SearchProducts from './comps/searchProducts';
 import Checkout from './comps/orders_comps/checkout';
 import EmailSent from './comps/users_comps/emailSent';
 import ForgottenPassword from './comps/users_comps/forgottenPassword';
+import UserInfo from './comps/users_comps/userInfo';
 
 import Page404 from './comps/general_comps/page404';
 import 'react-toastify/dist/ReactToastify.css';
@@ -80,6 +81,7 @@ function AppRoute(props){
           <Route path="/emailSent/:emailuser/:reset" element={<EmailSent />}  />
           <Route path="/forgottenPassword" element={<ForgottenPassword />}  />
           <Route path="/passwordRest/:userId/:resetString" element={<PasswordRest />}  />
+          <Route path="/userInfo" element={<UserInfo/>}  />
          {/* * - for any url that not in another route go to 404 */}
           <Route path="/*" element={<Page404 />} />
         </Route> 

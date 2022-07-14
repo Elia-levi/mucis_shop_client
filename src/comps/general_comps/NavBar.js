@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsSearch, BsCart3 } from "react-icons/bs"
 import { FaBars } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 import { SidebarData } from './SidebarData';
 
@@ -61,6 +62,17 @@ function NavBar() {
 
                             <h2 ><img src={"/images/Background1.png"} alt="logo" /></h2>
 
+                            <li className='  ms-1 mt-3 login-navBar d-flex'>
+                                {login ?
+                                    ""
+                                    :
+                                    <React.Fragment>
+                                        <Link className='btn-info btn-sm text-whit btn-sm text-white me-2 rounded-pill' to="/login">Login </Link>
+                                        <Link className='btn-success btn-sm text-whit btn-sm  text-white rounded-pill' to="/signup"> Sign up</Link>
+                                    </React.Fragment>
+                                }
+                            </li>
+
                             {SidebarData.map((item, index) => {
                                 return (
                                     <li key={index} className={item.cName}>
@@ -70,17 +82,6 @@ function NavBar() {
                                     </li>
                                 );
                             })}
-
-                            <li className=' float-start ms-4 mt-5 login-navBar d-flex'>
-                                {login ?
-                                    <Link to="/logout" className='btn-danger btn-sm btn text-white'>Log out</Link>
-                                    :
-                                    <React.Fragment>
-                                        <Link className='btn-info btn-sm text-whit btn-sm text-white me-2' to="/login">Login </Link>
-                                        <Link className='btn-success btn-sm text-whit btn-sm  text-white' to="/signup"> Sign up</Link>
-                                    </React.Fragment>
-                                }
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -91,7 +92,7 @@ function NavBar() {
                         <button onClick={onSearchClick} className='btn '><BsSearch className='icon1' /></button>
                     </div>
 
-                    <div className='cartOut ms-3  '>
+                    <div className='cartOut mx-2  '>
                         <button onClick={() => { showCart === "none" ? setShowCart("block") : setShowCart("none") }} type="button" className="btn" >
                             <BsCart3 className='icon1 ' />
                         </button>
@@ -99,6 +100,11 @@ function NavBar() {
                             {amount}
                         </span>
                     </div>
+                    {login ?
+                        <Link to="/userInfo">< FaUserCircle style={{ fontSize: "1.7em",color:"black" }} /></Link>
+                        :
+                        ""
+                    }
                 </div>
             </div>
         </React.Fragment>

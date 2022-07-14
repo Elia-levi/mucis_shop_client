@@ -25,7 +25,7 @@ function ForgottenPassword(props) {
     // data = the inputs in the form with ref in 1 object
     // need to change
     // data.redirectUrl = "http://localhost:3000/passwordRest";
-    data.redirectUrl = "https://musicsshop.netlify.app/";
+    data.redirectUrl = "https://musicsshop.netlify.app/passwordRest";
     doApi(data)
   }
 

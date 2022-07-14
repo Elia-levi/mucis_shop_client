@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsSearch, BsCart3, BsCaretDownFill } from "react-icons/bs"
+import { FaUserCircle } from "react-icons/fa";
+
 
 import { API_URL, doApiGet } from '../../services/apiService';
 import LoadingScreen from '../../misc_comps/loadingScreen';
@@ -121,7 +123,7 @@ function ClientHeader(props) {
 
                 <div className='log_in_out'>
                   {login ?
-                    <Link to="/logout" className='text-danger'>Log out</Link>
+                    <Link to="/userInfo">< FaUserCircle  style={{fontSize:"2.2em"}}/></Link>
                     :
                     <React.Fragment >
                       <Link to="/login" >Login </Link>/
