@@ -44,34 +44,6 @@
 }
 
 
-.about-home {
-  min-height: 300px;
-  background-color: #95c2de;
-  border-radius: 25px;
-  box-shadow: -12px -8px 20px 10px rgb(35, 35, 35);
-  border-bottom: 4px white solid;
-  border-left: 6px white solid;
-}
-
-.leaflet-container {
-  width: 98%;
-  height: 300px;
-  border: white 2px solid;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.pop_up_map {
-  border: none;
-  background: none;
-  color: #0d6efd;
-}
-
-.pop_up_map:hover {
-  color: purple;
-  border-bottom: purple 1px solid;
-}
-
 @media (max-width:991px) {
 
   .about-home p {

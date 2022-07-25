@@ -23,11 +23,14 @@ import SignUpClient from './comps/users_comps/signupClient';
 import LogInClient from './comps/users_comps/loginClient';
 import LogoutClient from './comps/users_comps/logoutClient';
 import Home from './comps/home';
+import About from './comps/about';
 import LayoutClient from './comps/layoutClient';
 import ProductsListPage from "./comps/productsListPage";
 import SubCategoriesListPage from "./comps/subCategoriesListPage";
 import ProductInfo from './comps/productInfo';
 import FavsProducts from './comps/users_comps/favsProducts';
+import OldOrders from './comps/orders_comps/oldOrders';
+import OldOrderInfoClient from './comps/orders_comps/oldOrderInfoClient';
 import SearchProducts from './comps/searchProducts';
 import Checkout from './comps/orders_comps/checkout';
 import EmailSent from './comps/users_comps/emailSent';
@@ -37,6 +40,7 @@ import UserInfo from './comps/users_comps/userInfo';
 import Page404 from './comps/general_comps/page404';
 import 'react-toastify/dist/ReactToastify.css';
 import PasswordRest from './comps/users_comps/passwordRest';
+import AddProductClient from './comps/users_comps/addProductsClient';
 
 
 
@@ -68,6 +72,7 @@ function AppRoute(props){
         <Route path="/" element={<LayoutClient />}>
           <Route index element={<Home />} />
           <Route path="/products/:cat_url" element={<ProductsListPage />}  />
+          <Route path="/about/" element={<About />}  />
           <Route path="/subCategories/:cat_url" element={<SubCategoriesListPage />}  />
           <Route path="/productsSearch/" element={<SearchProducts />}  />
           <Route path="/productInfo/:id" element={<ProductInfo />}  />
@@ -82,6 +87,9 @@ function AppRoute(props){
           <Route path="/forgottenPassword" element={<ForgottenPassword />}  />
           <Route path="/passwordRest/:userId/:resetString" element={<PasswordRest />}  />
           <Route path="/userInfo" element={<UserInfo/>}  />
+          <Route path="/addProductClient" element={<AddProductClient/>}  />
+          <Route path="/oldOrders" element={<OldOrders />}  />
+          <Route path="/oldOrders/:idOrder" element={<OldOrderInfoClient />}  />
          {/* * - for any url that not in another route go to 404 */}
           <Route path="/*" element={<Page404 />} />
         </Route> 

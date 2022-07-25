@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { API_URL, doApiGet, doApiMethod } from '../services/apiService';
-import AuthAdminComp from '../misc_comps/authAdminComp';
+import { API_URL, doApiGet, doApiMethod } from '../../services/apiService';
+import AuthClientComp from './authClientComp';
 
 
-function AddProduct(props) {
-  document.title = "Admin panel - Add product";
+function AddProductClient(props) {
+  document.title = "Music shop - Add product";
 
   // categoried data the will load from api request
   let [cat_ar, setCatAr] = useState([]);
@@ -26,6 +26,7 @@ function AddProduct(props) {
   // qty - amount of product in the store
   let qtyRef = register("qty", { required: true, min: 1, max: 9999 })
 
+
   useEffect(() => {
     doApi()
   }, [])
@@ -39,31 +40,32 @@ function AddProduct(props) {
 
   const onSubForm = (formData) => {
     setBtnSend(true);
+    console.log(formData)
     formData.name=formData.name.charAt(0).toUpperCase() + formData.name.slice(1)
     doFormApi(formData);
   }
 
   const doFormApi = async (formData) => {
-    let url = API_URL + "/products";
+    let url = API_URL + "/products/user";
     try {
       let resp = await doApiMethod(url, "POST", formData);
       if (resp.data._id) {
         toast.success("Product added");
         // back to the list of products in the admin panel
-        nav("/admin/products")
+        nav("/userInfo")
       }
     }
     catch (err) {
       console.log(err.response.data)
       alert("There problem try again later")
-      nav("/admin/products")
+      nav("/userInfo")
     }
   }
 
   return (
-    <div className='container col-md-6 mx-auto mt-4'>
-      <AuthAdminComp />
-      <h1 className='text-center display-5 fw-bold my-1 fst-italic'>Add new product</h1>
+    <div className='container col-md-6 mx-auto my-4'>
+      <AuthClientComp />
+      <h1 className='text-center display-6 fw-bold my-1 fst-italic'>Add a second-hand product</h1>
       <form onSubmit={handleSubmit(onSubForm)} className='col-12 p-3 border mt-2 rounded shadow border-dar'>
 
         <label className=' fw-bold mb-1'>Name:</label>
@@ -88,7 +90,7 @@ function AddProduct(props) {
         </div>
 
         <label className=' fw-bold mb-1'>SubCategory:</label>
-        <select {...cat_short_idRef}   className='form-select mb-2 ms-1'>
+        <select {...cat_short_idRef} className='form-select mb-2 ms-1'>
           <option value="" >Choose SubCategory</option>
           {cat_ar.map(item => {
             return (
@@ -114,4 +116,4 @@ function AddProduct(props) {
   )
 }
 
-export default AddProduct
+export default AddProductClient

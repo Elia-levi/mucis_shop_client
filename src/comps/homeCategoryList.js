@@ -30,7 +30,7 @@ function HomeCategoryList(props) {
 
 
   return (
-    <div className='container-fluid shadow'>
+    <div className='container-fluid shadow border-bottom border-dark '>
       <div className='container py-4 categories_list'>
         <h2 className='text-center display-6 fw-bold my-2 fst-italic'>Choose category of products</h2>
         <div className="row">

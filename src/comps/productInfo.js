@@ -63,7 +63,7 @@ function ProductInfo(props){
           <button onClick={onAddToCartClick} className="btn btn-info ms-2 mt-2">Add to cart 
           <BsCart3 className="ms-2 mb-1"/>+
           </button> :
-           <button  className="btn  btn-danger ms-2 mt-2">SOLD OUT!!!</button>
+           <button  className="btn  btn-danger ms-2 mt-2" disabled>SOLD OUT!!!</button>
           }
         </div>
       </div>

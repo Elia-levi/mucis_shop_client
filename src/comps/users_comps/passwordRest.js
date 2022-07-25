@@ -69,7 +69,7 @@ function PasswordRest(props) {
 
             <form onSubmit={handleSubmit(onSubForm)} className='col-11  mx-auto  '>
 
-                <label className='mt-2' style={{ fontSize: "0.9em" }}>Password</label>
+                <label className='mt-2' style={{ fontSize: "0.9em" }}>Enter new password</label>
                 <div className='d-flex align-items-center border'>
                     <FaLock className='fs-5 mx-2' />
                     <input {...passwordRef} type={passwordShown ? "text" : "password"} className='form-control border-0' />

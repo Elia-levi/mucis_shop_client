@@ -5,13 +5,14 @@ export const SidebarData = [
         cName: 'nav-text-user'
     },
     {
-        title: 'Check out',
-        path: '/checkout',
+        title: 'About',
+        path: '/about',
         cName: 'nav-text-user'
     },
     {
-        title: 'Favorites',
-        path: '/products_favs',
+        title: 'Check out',
+        path: '/checkout',
         cName: 'nav-text-user'
     }
+
 ]

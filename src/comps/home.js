@@ -2,7 +2,6 @@ import React from 'react';
 
 import HomeStrip from './homeStrip';
 import HomeCategoryList from './homeCategoryList';
-import HomeAbut from './homeAbout';
 import ProductsHome from './productsHome';
 
 import "./css/home.css"
@@ -15,7 +14,6 @@ function Home(props){
     <React.Fragment>
       <HomeStrip />
       <HomeCategoryList />
-      <HomeAbut />
       <ProductsHome />
     </React.Fragment> 
   )

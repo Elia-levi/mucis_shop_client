@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 import { SidebarData } from './SidebarData';
 
+import { API_URL, doApiGet } from '../../services/apiService';
 import { checkTokenLocal } from '../../services/localService';
 import { AppContext } from "../../context/shopContext"
 
@@ -16,6 +17,8 @@ function NavBar() {
     let [amount, setAmount] = useState(0);
     const [sidebar, setSidebar] = useState(false);
     let [login, setLogin] = useState("");
+    let [user, setUser] = useState({})
+
 
     let location = useLocation();
     let inputRef = useRef()
@@ -31,8 +34,11 @@ function NavBar() {
         } else {
             setAmount(0)
         }
+        if (login) {
+            doApiUser();
+        }
         window.scrollTo(0, 0);
-    }, [location, cart_ar])
+    }, [location, cart_ar, login])
 
     const onKeyboardClick = (e) => {
         // check if we click Enter 
@@ -41,12 +47,30 @@ function NavBar() {
         }
     }
 
+    const doApiUser = async () => {
+        let url = API_URL + "/users/myInfo";
+        let resp = await doApiGet(url)
+        setUser(resp.data)
+    }
+
     const onSearchClick = () => {
         let input_val = inputRef.current.value;
         nav("/productsSearch?s=" + input_val);
     }
 
-    const showSidebar = () => setSidebar(!sidebar);
+    const showSidebar = () => {
+        setShowCart("none")
+        setSidebar(!sidebar)
+    };
+
+    const showCartFunc = () => {
+        if (showCart === "none") {
+            setShowCart("block");
+            setSidebar(false);
+        } else {
+            setShowCart("none")
+        }
+    };
 
 
     return (
@@ -93,17 +117,30 @@ function NavBar() {
                     </div>
 
                     <div className='cartOut mx-2  '>
-                        <button onClick={() => { showCart === "none" ? setShowCart("block") : setShowCart("none") }} type="button" className="btn" >
+                        <button onClick={showCartFunc} type="button" className="btn" >
                             <BsCart3 className='icon1 ' />
                         </button>
                         <span className=" badge rounded-pill bg-danger cartin">
                             {amount}
                         </span>
                     </div>
-                    {login ?
-                        <Link to="/userInfo">< FaUserCircle style={{ fontSize: "1.7em",color:"black" }} /></Link>
-                        :
-                        ""
+
+                    {
+                        (() => {
+                            if (!login) {
+                                return ("")
+                            } else if (login && (!user.img_user || user.img_user === "")) {
+                                return (
+                                    <Link to="/userInfo" className='text-dark'>< FaUserCircle style={{ fontSize: "2.2em" }} /></Link>
+                                )
+                            } else {
+                                return (
+                                    <Link to="/userInfo">
+                                        <img src={user.img_user} alt={user.name} className="rounded-circle" style={{ height: "40px", width: "40px" }} />
+                                    </Link>
+                                )
+                            }
+                        })()
                     }
                 </div>
             </div>
@@ -112,3 +149,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

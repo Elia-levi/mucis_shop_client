@@ -171,13 +171,13 @@ function UsersList(props) {
                     {(item.role === "admin") ?
                       <button onClick={() => {
                         changeRole(item.name, item._id, "user")
-                      }} className='btn-sm px-3 btn-outline-dark rounded-pill d-flex mx-auto'>Change to user</button>
+                      }} className='btn-sm px-3 btn-outline-dark rounded-pill d-flex mx-auto'>User</button>
                       :
                       <button
                         onClick={() => {
                           changeRole(item.name, item._id, "admin")
                         }}
-                        className='btn-sm btn-outline-primary  rounded-pill d-flex mx-auto'>Change to admin</button>
+                        className='btn-sm btn-outline-primary  rounded-pill d-flex mx-auto'>Admin</button>
                     }
                   </td> :
                     <td>

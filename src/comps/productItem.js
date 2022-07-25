@@ -21,6 +21,9 @@ function ProducItem(props) {
             {item.qty === 0 ?
               <div className='sold-out'>Sold out!</div> : ""
             }
+            {item.yad ?
+              <div className='Yad-tow'>Second hand</div> : ""
+            }
           </div>
         </Link>
 

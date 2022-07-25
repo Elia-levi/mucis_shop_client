@@ -11,7 +11,7 @@ function LoadingScreen(props){
     display:"flex",
     alignItems:"center",
     justifyContent:"center",
-    zIndex:99999
+    zIndex:9999999
   }
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
-function HomeAbut(props) {
+function Abut(props) {
 
   const openInNewTab = url => {
     //setting target to _blank with window.open
@@ -11,7 +11,7 @@ function HomeAbut(props) {
 
   return (
     <div className='container-fluid'>
-      <div className="container text-black my-5 about-home ">
+      <div className="container text-black my-5 about ">
         <h2 className='display-6 text-center pt-2 fw-bold fst-italic text-white'>About</h2>
         <div className='row  '>
 
@@ -46,4 +46,4 @@ function HomeAbut(props) {
   )
 }
 
-export default HomeAbut;
+export default Abut;

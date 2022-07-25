@@ -29,7 +29,7 @@ function ProductsHome(props) {
 
 
   return (
-    <div className="container-fluid py-4 shadow-lg">
+    <div className="container-fluid py-4 ">
       <div className='container'>
 
         {localStorage[VISITED_PRODUCT] ?
@@ -48,6 +48,7 @@ function ProductsHome(props) {
         </div>
       </div>
     </div>
+    
   )
 }
 

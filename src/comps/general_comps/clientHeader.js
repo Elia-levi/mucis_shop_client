@@ -20,6 +20,7 @@ function ClientHeader(props) {
   const [ar, setAr] = useState([]);
   let [login, setLogin] = useState("");
   let [amount, setAmount] = useState(0);
+  let [user, setUser] = useState({})
 
   let inputRef = useRef();
   let location = useLocation();
@@ -28,15 +29,18 @@ function ClientHeader(props) {
   useEffect(() => {
     // check if login
     setLogin(checkTokenLocal())
-    doApi();
     if (cart_ar.length !== 0) {
       let amount = cart_ar.length;
       setAmount(amount)
     } else {
       setAmount(0)
     }
+    doApi();
+    if (login) {
+      doApiUser();
+    }
     window.scrollTo(0, 0);
-  }, [location, cart_ar])
+  }, [location, cart_ar, login])
 
   const doApi = async () => {
     setLoading(true);
@@ -49,6 +53,14 @@ function ClientHeader(props) {
       console.log(err.response);
       alert("There problem try again later")
     }
+    setLoading(false)
+  }
+
+  const doApiUser = async () => {
+    setLoading(true);
+    let url = API_URL + "/users/myInfo";
+    let resp = await doApiGet(url)
+    setUser(resp.data)
     setLoading(false)
   }
 
@@ -101,8 +113,8 @@ function ClientHeader(props) {
                   </div>
                 </li>
 
+                <li>  <Link to="/about">About</Link></li>
                 <li> <Link to="/checkout">Check out</Link></li>
-                <li>  <Link to="/products_favs">Favorites</Link></li>
               </ul>
 
               <div className='col-md-5 d-flex justify-content-end align-items-center'>
@@ -112,7 +124,7 @@ function ClientHeader(props) {
                   <button onClick={onSearchClick} className='btn '><BsSearch className='icon1' /></button>
                 </div>
 
-                <div className='cartOut  me-xl-3'>
+                <div className='cartOut  me-xl-2'>
                   <button onClick={() => { showCart === "none" ? setShowCart("block") : setShowCart("none") }} type="button" className="btn" >
                     <BsCart3 className='icon1 ' />
                   </button>
@@ -122,13 +134,26 @@ function ClientHeader(props) {
                 </div>
 
                 <div className='log_in_out'>
-                  {login ?
-                    <Link to="/userInfo">< FaUserCircle  style={{fontSize:"2.2em"}}/></Link>
-                    :
-                    <React.Fragment >
-                      <Link to="/login" >Login </Link>/
-                      <Link to="/signup" > Sign up</Link>
-                    </React.Fragment>
+                  {
+                    (() => {
+                      if (!login) {
+                        return (
+                          <React.Fragment >
+                            <Link to="/login" >Login </Link>/
+                            <Link to="/signup" > Sign up</Link>
+                          </React.Fragment>)
+                      } else if (login && (!user.img_user || user.img_user === "")) {
+                        return (
+                          <Link to="/userInfo">< FaUserCircle style={{ fontSize: "2.2em" }} title={user.name} /></Link>
+                        )
+                      } else {
+                        return (
+                          <Link to="/userInfo">
+                            <img src={user.img_user} alt={user.name} className="rounded-circle" style={{ height: "45px", width: "45px" }} title={user.name} />
+                          </Link>
+                        )
+                      }
+                    })()
                   }
                 </div>
               </div>
@@ -142,8 +167,6 @@ function ClientHeader(props) {
 }
 
 export default ClientHeader
-
-
 
 
 
